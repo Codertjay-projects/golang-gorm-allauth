@@ -1,8 +1,13 @@
 package models
 
-import "time"
+import (
+	AllauthConfig "github.com/codertjay/golang-gorm-allauth/config"
+	"time"
+)
 
-type User struct {
+var UserModel = AllauthConfig.AllauthConfig{}.UserModel
+
+type AllauthUser struct {
 	ID           uint      `gorm:"primaryKey" json:"id"`
 	FirstName    *string   `json:"first_name"`
 	LastName     *string   `json:"last_name"`
@@ -19,14 +24,26 @@ type User struct {
 	UpdatedAt    time.Time `json:"updated_at"`
 }
 
-func (u *User) CheckPassword(password string) {
+func GetCurrentUser() struct{} {
+	// todo: check if model exist and override the existing one
+	UserModel := AllauthConfig.AllauthConfig{}.UserModel
+	TypeOf
+	if UserModel. {
+
+	}
+	return UserModel
+}
+
+var CurrentUser = GetCurrentUser()
+
+func (u *CurrentUser) CheckPassword(password string) {
 
 }
 
-func (u *User) SetPassword(password string) {
+func (u *CurrentUser) SetPassword(password string) {
 
 }
 
-func (u *User) GetHashedPassword() *string {
+func (u *CurrentUser) GetHashedPassword() *string {
 	return u.Password
 }
