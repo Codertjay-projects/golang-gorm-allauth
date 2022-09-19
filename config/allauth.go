@@ -11,7 +11,7 @@ type AllauthConfig struct {
 	AccountAuthenticationMethod string
 	Database                    *gorm.DB
 	AuthorizationMethod         string
-	UserModel                   struct{}
+	UserModel                   interface{}
 }
 
 func (a *AllauthConfig) GetAllauthConfig() AllauthConfig {
